@@ -231,51 +231,91 @@
  * Destructuing and Naming
  */
 
-const firstName = "joe"
-const lastName = "terlecki"
-const age = 33
+// const firstName = "joe"
+// const lastName = "terlecki"
+// const age = 33
 
-// if key is the same as a variable name to referecne the value, you dont need to do this
+// // if key is the same as a variable name to referecne the value, you dont need to do this
+// // const person = {
+// //   firstName: firstName,
+// //   lastName: lastName,
+// //   age: age,
+// // }
+// // DO THIS!!!!
 // const person = {
-//   firstName: firstName,
-//   lastName: lastName,
-//   age: age,
+//   firstName,
+//   lastName,
+//   age,
 // }
-// DO THIS!!!!
-const person = {
-  firstName,
-  lastName,
-  age,
-}
 
-console.log(person.age)
+// console.log(person.age)
 
-// destructuring
-let output
-const todo = {
-  id: 1,
-  title: "groceries",
-  user: {
-    fullName: "Joe Terlecki",
+// // destructuring
+// let output
+// const todo = {
+//   id: 1,
+//   title: "groceries",
+//   user: {
+//     fullName: "Joe Terlecki",
+//   },
+// }
+
+// // const id = todo.id // dont do this becasue we can destrucutre or use
+// // DO THIS
+// // pulls them out and saves as the variable to be used
+// const {
+//   id: todoID, //rename the id to todoID
+//   title,
+//   user: { fullName },
+// } = todo
+// console.log(todoID, title, fullName)
+
+// const nums = [1, 2, 44, 55, 66, 66, 77, 88]
+// // we can also destructure arrays
+// // const [first, second] = nums // first two values of the array
+// // console.log(first, second) // first two values of the array
+
+// // rest operator
+// const [first, second, ...theRest] = nums
+// console.log(first, second, theRest)
+// // rest operator puts the rest of the values into another array
+
+/**
+ * OBJECT CHALLANGES
+ */
+
+const library = [
+  {
+    title: "book1",
+    author: "author 1",
+    status: {
+      own: false,
+      reading: false,
+      read: false,
+    },
   },
-}
+  {
+    title: "book2",
+    author: "author 2",
+    status: {
+      own: false,
+      reading: false,
+      read: false,
+    },
+  },
+  {
+    title: "book3",
+    author: "author 3",
+    status: {
+      own: false,
+      reading: false,
+      read: false,
+    },
+  },
+]
 
-// const id = todo.id // dont do this becasue we can destrucutre or use
-// DO THIS
-// pulls them out and saves as the variable to be used
-const {
-  id: todoID, //rename the id to todoID
-  title,
-  user: { fullName },
-} = todo
-console.log(todoID, title, fullName)
+const { title: myFirstBook } = library[0]
+console.log(myFirstBook)
 
-const nums = [1, 2, 44, 55, 66, 66, 77, 88]
-// we can also destructure arrays
-// const [first, second] = nums // first two values of the array
-// console.log(first, second) // first two values of the array
-
-// rest operator
-const [first, second, ...theRest] = nums
-console.log(first, second, theRest)
-// rest operator puts the rest of the values into another array
+const libraryJSON = JSON.stringify(library)
+console.log(libraryJSON)
