@@ -205,23 +205,130 @@
  * <!-- afterend -->
  */
 
-function insertElement(): void {
-  const filter = document.querySelector(".filter") as HTMLElement
-  const h1: HTMLHeadingElement = document.createElement("h1")
-  h1.textContent = "insertAdjacentElement"
-  filter?.insertAdjacentElement("beforebegin", h1)
+// function insertElement(): void {
+//   const filter = document.querySelector(".filter") as HTMLElement
+//   const h1: HTMLHeadingElement = document.createElement("h1")
+//   h1.textContent = "insertAdjacentElement"
+//   filter?.insertAdjacentElement("beforebegin", h1)
+// }
+
+// function insertText(): void {
+//   const item = document.querySelector("li:first-child") as HTMLElement
+//   item.insertAdjacentText("beforebegin", "insertAdjacentText")
+// }
+
+// function insertHTML(): void {
+//   const clearBTN = document.querySelector("#clear") as HTMLElement
+//   clearBTN.insertAdjacentHTML("afterend", "<h2>insertAdjacentHTML</h2>")
+// }
+
+// function insertBeforeElement() {
+//   const ul = document.querySelector("ul")
+//   const li = document.createElement("li")
+//   li.textContent = "insertBefore"
+
+//   const thirdItem = document.querySelector("li:nth-child(3)")
+//   ul?.insertBefore(li, thirdItem)
+// }
+
+// function insertAfterElement(newEl, existingEl) {
+//   existingEl.parentElement.insertBefore(newEl, existingEl.nextSibling)
+// }
+
+// const li = document.createElement("li")
+// li.textContent = "Insert After"
+// const firstItem = document.querySelector("li:first-child")
+
+// // insertElement()
+// // insertText()
+// // insertHTML()
+// // insertBeforeElement()
+// insertAfterElement(li, firstItem)
+
+/**
+ * REPLACING ELEMENTS IN THE DOM
+ */
+// function replaceFirst() {
+//   const firstItem = document.querySelector("li:first-child")
+//   const li = document.createElement("li")
+//   li.textContent = "Grapes Replaced"
+
+//   firstItem?.replaceWith(li)
+// }
+
+// function replaceSecondItem() {
+//   const secondItem = document.querySelector("li:nth-child(2)")
+//   secondItem!.outerHTML = "<li>Replaced Second</li>"
+// }
+
+// function replaceAllItems() {
+//   const allItems = document.querySelectorAll("li")
+//   // allItems.forEach((item, index) => {
+//   //   // item.outerHTML = "<li>Replace ALL</li>"
+//   //   if (index === 1) {
+//   //     item.innerHTML = "INDEX 1"
+//   //   } else {
+//   //     item.innerHTML = "Replace ALL Inner HTML"
+//   //   }
+//   // })
+
+//   allItems.forEach(
+//     (item, index) =>
+//       (item.innerHTML = index === 1 ? "SECOND ITEM" : "REPLEACED AGAIN")
+//   )
+// }
+
+// function replaceChildHeading() {
+//   const header = document.querySelector("header")
+//   const h1 = document.querySelector("header h1")
+//   const h2 = document.createElement("h2")
+//   h2.id = "app-title"
+//   h2.textContent = "shopping list"
+//   header?.replaceChild(h2, h1)
+// }
+
+// replaceFirst()
+// replaceSecondItem()
+// replaceAllItems()
+// replaceChildHeading()
+
+/**
+ * REMOVING ELEMENTS
+ */
+// remove
+function removeClearButton() {
+  document.querySelector("#clear")?.remove()
 }
 
-function insertText(): void {
-  const item = document.querySelector("li:first-child") as HTMLElement
-  item.insertAdjacentText("beforebegin", "insertAdjacentText")
+function removeFirst() {
+  const ul = document.querySelector("ul")
+  const li = document.querySelector("li:first-child") as Element
+  ul!.removeChild(li)
 }
 
-function insertHTML(): void {
-  const clearBTN = document.querySelector("#clear") as HTMLElement
-  clearBTN.insertAdjacentHTML("afterend", "<h2>insertAdjacentHTML</h2>")
+function removeItem(itemIndex: number) {
+  const ul = document.querySelector("ul")
+  const li = document.querySelector(`li:nth-child(${itemIndex})`) as Element
+  ul!.removeChild(li)
 }
 
-insertElement()
-insertText()
-insertHTML()
+function removeIem2(itemIndex: number) {
+  const ul = document.querySelector("ul")
+  const li = document.querySelectorAll("li")[itemIndex]
+  ul?.removeChild(li)
+}
+
+function removeItem3(itemIndex: number) {
+  const li = document.querySelectorAll("li")
+  li[itemIndex - 1].remove()
+}
+
+const removeItem4 = (itemIndex: number) =>
+  document.querySelectorAll("li")[itemIndex - 1].remove()
+
+removeClearButton()
+// removeFirst()
+// removeItem(3)
+// removeIem2(2)
+// removeItem3(2)
+removeItem4(3)
